@@ -30,27 +30,39 @@ if(isset($_POST['submit'])) {
 <head>
     <meta charset="UTF-8">
     <title>Auto Bedrijf</title>
+    <link rel="stylesheet" href="auto.css">
+    <header>
+        <nav>
+            <a href="index.php" class="logo"><h2>Mr.Wheeler</h2></a>
+            <a href="about.php">about us</a>
+        </nav>
+    </header>
 </head>
 <body>
-<form action="index.php" method="post">
-    <select name="merk">
-        <option value="alle">Alle</option>
-        <?php foreach($ao->getMerken() as $merk) { ?>
-            <option><?= $merk ?></option>
-        <?php } ?>
-    </select>
-    <input type="submit" name="submit">
-</form>
-<table>
-    <?php foreach ($autos as $auto) { ?>
-        <tr>
-            <td><?= $auto->merk ?></td>
-            <td><?= $auto->type ?></td>
-            <td><?= $auto->kleur ?></td>
-            <td><?= $auto->prijs ?></td>
-        </tr>
-    <?php } ?>
 
-</table>
+<br></br>
+
+<div class="Auto">
+    <form action="index.php" method="post">
+        <select name="merk">
+            <option value="alle">Alle</option>
+            <?php foreach($ao->getMerken() as $merk) { ?>
+                <option><?= $merk ?></option>
+            <?php } ?>
+        </select>
+        <input type="submit" name="submit">
+    </form>
+    <table>
+        <?php foreach ($autos as $auto) { ?>
+            <tr>
+                <td><?= $auto->merk ?></td>
+                <td><?= $auto->type ?></td>
+                <td><?= $auto->kleur ?></td>
+                <td><?= $auto->prijs ?></td>
+            </tr>
+        <?php } ?>
+    </table>
+</div>
+
 </body>
 </html>
